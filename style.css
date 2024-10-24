@@ -1,0 +1,133 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000930;
+    color: #ffffff;
+}
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: #000930;
+    padding: 20px;
+}
+header img {
+    height: 50px;
+    position: absolute;
+    left: 20px;
+}
+header h1 {
+    margin: 0;
+    font-size: 1.8em;
+}
+.hero {
+    position: relative;
+    height: 100vh; /* Full-screen height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    text-align: center;
+    overflow: hidden; /* Ensures video does not overflow */
+}
+.hero video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    object-fit: cover; /* Ensures the video covers the whole area */
+    filter: brightness(90%) saturate(140%);
+}
+.hero h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Text shadow for better readability */
+}
+.hero p {
+    font-size: 1.5em;
+    max-width: 700px;
+    line-height: 1.4;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+.cta-button {
+    margin-top: 30px;
+    padding: 15px 30px;
+    background-color: #37c0d0;
+    color: #000930;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.cta-button:hover {
+    background-color: #ffffff;
+    color: #37c0d0;
+    transition: all 0.3s ease;
+}
+footer {
+    background-color: #000930;
+    padding: 20px;
+    text-align: center;
+    color: #ffffff;
+}
+footer p {
+    margin: 0;
+}
+
+
+#team-section {
+    padding: 50px 0;
+    background-color: #001940; /* Ein dunklerer Blauton, der zum Gesamtdesign passt */
+    text-align: center;
+}
+
+#team-section h2 {
+    color: #ffffff;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Ähnlich wie andere Texte */
+}
+
+.team-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap; /* Flexibilität für kleinere Bildschirme */
+}
+
+.team-member {
+    background-color: #000930;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.team-member h3 {
+    color: #37c0d0;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.team-member p {
+    color: #ffffff;
+    font-size: 1.2em;
+    margin-bottom: 0;
+}
