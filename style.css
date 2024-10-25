@@ -4,6 +4,7 @@ body {
     background-color: #000930;
     color: #ffffff;
 }
+
 header {
     display: flex;
     align-items: center;
@@ -12,15 +13,18 @@ header {
     background-color: #000930;
     padding: 20px;
 }
+
 header img {
     height: 50px;
     position: absolute;
     left: 20px;
 }
+
 header h1 {
     margin: 0;
     font-size: 1.8em;
 }
+
 .hero {
     position: relative;
     height: 100vh; /* Full-screen height */
@@ -32,6 +36,7 @@ header h1 {
     text-align: center;
     overflow: hidden; /* Ensures video does not overflow */
 }
+
 .hero video {
     position: absolute;
     top: 50%;
@@ -43,19 +48,22 @@ header h1 {
     z-index: -1;
     transform: translate(-50%, -50%);
     object-fit: cover; /* Ensures the video covers the whole area */
-    filter: brightness(90%) saturate(140%);
+    filter: brightness(95%) saturate(150%);
 }
+
 .hero h2 {
     font-size: 3em;
     margin-bottom: 20px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Text shadow for better readability */
 }
+
 .hero p {
     font-size: 1.5em;
     max-width: 700px;
     line-height: 1.4;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
+
 .cta-button {
     margin-top: 30px;
     padding: 15px 30px;
@@ -66,26 +74,29 @@ header h1 {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 .cta-button:hover {
     background-color: #ffffff;
     color: #37c0d0;
     transition: all 0.3s ease;
 }
+
 footer {
     background-color: #000930;
     padding: 20px;
     text-align: center;
     color: #ffffff;
 }
+
 footer p {
     margin: 0;
 }
 
-
 #team-section {
     padding: 50px 0;
-    background-color: #001940; /* Ein dunklerer Blauton, der zum Gesamtdesign passt */
+    background-color: #001940;
     text-align: center;
 }
 
@@ -93,14 +104,14 @@ footer p {
     color: #ffffff;
     font-size: 2.5em;
     margin-bottom: 40px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Ähnlich wie andere Texte */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .team-container {
     display: flex;
     justify-content: center;
     gap: 50px;
-    flex-wrap: wrap; /* Flexibilität für kleinere Bildschirme */
+    flex-wrap: wrap;
 }
 
 .team-member {
@@ -110,6 +121,11 @@ footer p {
     width: 300px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
 }
 
 .team-member img {
@@ -130,4 +146,46 @@ footer p {
     color: #ffffff;
     font-size: 1.2em;
     margin-bottom: 0;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+}
+
+
+.social-icons {
+    display: flex;
+    justify-content: center; /* Center the icons in the container */
+}
+
+.instagram-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px; /* Adds space between the logo and text */
+    vertical-align: middle; /* Ensures the image aligns with the text */
+}
+
+.instagram-link span {
+    font-size: 1.2em;
+}
+
+.instagram-link:hover {
+    color: #E1306C; /* Changes text color to Instagram's pink on hover */
 }
