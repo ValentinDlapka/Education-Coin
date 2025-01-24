@@ -1,0 +1,1 @@
+geth --networkid 361 --mine --miner.etherbase 0x69b0E7D732F97ac2617b25b6393eDBcBAbfE2a4e --unlock 0x69b0E7D732F97ac2617b25b6393eDBcBAbfE2a4e --allow-insecure-unlock --http --http.api eth,net,web3,personal
