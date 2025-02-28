@@ -15,7 +15,7 @@ public class User {
     private String name;
     @Column(nullable = false)
     private String hashedPassword;
-    @OneToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     Wallet wallet;
 
     public Long getId() {
