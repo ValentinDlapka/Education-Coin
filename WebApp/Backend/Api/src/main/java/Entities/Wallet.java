@@ -1,8 +1,7 @@
-package Entetys;
+package Entities;
 
 import Security.AES;
 import jakarta.persistence.*;
-import org.mindrot.jbcrypt.BCrypt;
 
 @Entity
 public class Wallet {
@@ -10,10 +9,19 @@ public class Wallet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-    @Column
+    @Column(nullable = false)
     private String address;
-    @Column
+    @Column(nullable = false)
     private String privateKey;
+
+    public Wallet() {
+    }
+
+    public Wallet(String address, String privateKey) {
+
+        setAddress(address);
+        setPrivateKey(privateKey);
+    }
 
     public Long getId() {
         return id;

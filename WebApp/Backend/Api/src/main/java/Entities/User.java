@@ -1,4 +1,4 @@
-package Entetys;
+package Entities;
 
 import jakarta.persistence.*;
 import org.mindrot.jbcrypt.BCrypt;
@@ -9,13 +9,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-    @Column
+    @Column(nullable = false)
     private boolean isTeacher;
-    @Column
+    @Column(nullable = false)
     private String name;
-    @Column
+    @Column(nullable = false)
     private String hashedPassword;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     Wallet wallet;
 
     public Long getId() {
