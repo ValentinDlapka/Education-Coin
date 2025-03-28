@@ -50,15 +50,17 @@ contract EduCoin is ERC20, Ownable {
      * @dev Redeem tokens by transferring them back to the school wallet.
      * @param wholeTokens The amount of tokens to redeem (in whole units).
      */
-    function redeemTokens(uint256 wholeTokens) external {
-        require(wholeTokens > 0, "Amount must be greater than zero");
+    function redeemTokens(address studentWallet, uint256 wholeTokens) external {
+    require(wholeTokens > 0, "Amount must be greater than zero");
+    require(studentWallet != address(0), "Invalid student wallet");
 
-        uint256 amount = wholeTokens * 10 ** decimals();
-        require(balanceOf(msg.sender) >= amount, "Not enough tokens to redeem");
+    uint256 amount = wholeTokens * 10 ** decimals();
+    require(balanceOf(studentWallet) >= amount, "Not enough tokens to redeem");
 
-        _transfer(msg.sender, schoolWallet, amount);
-        emit RewardRedeemed(msg.sender, wholeTokens);
-    }
+    _transfer(studentWallet, schoolWallet, amount);
+    emit RewardRedeemed(studentWallet, wholeTokens);
+}
+
 
     /**
      * @dev Change the school wallet address (only callable by the owner).
