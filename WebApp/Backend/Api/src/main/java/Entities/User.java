@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import org.mindrot.jbcrypt.BCrypt;
 
 @Entity
+@Table(name = "app_user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,7 +16,7 @@ public class User {
     private String name;
     @Column(nullable = false)
     private String hashedPassword;
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
     Wallet wallet;
 
     public Long getId() {

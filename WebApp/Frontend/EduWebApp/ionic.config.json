@@ -1,0 +1,7 @@
+{
+  "name": "EduWebApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

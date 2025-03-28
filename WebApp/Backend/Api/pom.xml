@@ -15,6 +15,7 @@
         <maven.compiler.target>21</maven.compiler.target>
         <maven.compiler.source>21</maven.compiler.source>
         <junit.version>5.11.0-M2</junit.version>
+        <web3j.version>4.12.1</web3j.version>  <!-- Web3j-Version zentralisieren -->
     </properties>
 
     <dependencies>
@@ -44,21 +45,21 @@
         <dependency>
             <groupId>org.web3j</groupId>
             <artifactId>core</artifactId>
-            <version>4.12.1</version>
+            <version>${web3j.version}</version>
         </dependency>
 
         <!-- Web3j Crypto (für Wallet-Management und Signaturen) -->
         <dependency>
             <groupId>org.web3j</groupId>
             <artifactId>crypto</artifactId>
-            <version>4.12.1</version>
+            <version>${web3j.version}</version>
         </dependency>
 
         <!-- Web3j Contracts (für die generierten Klassen) -->
         <dependency>
             <groupId>org.web3j</groupId>
             <artifactId>contracts</artifactId>
-            <version>4.12.1</version>
+            <version>${web3j.version}</version>
         </dependency>
 
         <!-- RxJava (benötigt für Flowable, um Blockchain-Events zu abonnieren) -->
@@ -67,6 +68,12 @@
             <artifactId>rxjava</artifactId>
             <version>1.3.8</version>
         </dependency>
+        <dependency>
+            <groupId>org.web3j</groupId>
+            <artifactId>codegen</artifactId>
+            <version>${web3j.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -111,7 +118,26 @@
             <plugin>
                 <groupId>org.web3j</groupId>
                 <artifactId>web3j-maven-plugin</artifactId>
-                <version>4.12.1</version>
+                <version>${web3j.version}</version>
+                <configuration>
+                    <packageName>com.Api.contracts</packageName>
+                    <sourceDestination>${project.build.directory}/generated-sources/web3j</sourceDestination>
+                    <abiSourceFiles>
+                        <directory>src/main/resources</directory>
+                        <includes>
+                            <include>**/*.abi</include>
+                        </includes>
+                    </abiSourceFiles>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>generate-sources</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate-sources</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
