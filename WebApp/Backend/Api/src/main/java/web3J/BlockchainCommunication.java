@@ -3,24 +3,26 @@ package web3J;
 import Entities.User;
 import Entities.Wallet;
 import Repo.WalletRepo;
-import com.Api.contracts.EduCoin;
+
+import at.contracts.EduCoin;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import org.web3j.crypto.Credentials;
 import org.web3j.crypto.ECKeyPair;
 import org.web3j.crypto.Keys;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.protocol.ipc.IpcService;
+import org.web3j.tx.FastRawTransactionManager;
 import org.web3j.tx.TransactionManager;
 import org.web3j.tx.gas.ContractGasProvider;
 import org.web3j.tx.gas.StaticGasProvider;
-
 import java.math.BigInteger;
 import java.nio.file.Paths;
 
 @ApplicationScoped
 public class BlockchainCommunication {
-    private static final String CONTRACT_ADDRESS = "YOUR_CONTRACT_ADDRESS";
+    private static final String CONTRACT_ADDRESS = "0xf63bcc9e8Faab989302a4267e4fAAEd329c00A6b";
     private static final BigInteger GAS_PRICE = BigInteger.valueOf(20_000_000_000L);
     private static final BigInteger GAS_LIMIT = BigInteger.valueOf(4_700_000);
 
@@ -33,14 +35,12 @@ public class BlockchainCommunication {
     @Inject
     WalletRepo walletRepo;
 
-    private final com.Api.contracts.EduCoin contract;
+    private final EduCoin contract;
 
-    public BlockchainCommunication(TransactionManager txManager) {
-        ContractGasProvider gasProvider = new StaticGasProvider(GAS_PRICE, GAS_LIMIT);
-        this.contract = EduCoin.load(CONTRACT_ADDRESS, web3j, txManager, gasProvider);
-    }
     public BlockchainCommunication() {
-        contract = null;
+        Credentials credentials = Credentials.create("28ba40636770dfa81003bb0e76724c3f91b5ef86fc9681cd492e7693cca0deac","69b0E7D732F97ac2617b25b6393eDBcBAbfE2a4e");
+        ContractGasProvider gasProvider = new StaticGasProvider(GAS_PRICE, GAS_LIMIT);
+        contract = EduCoin.load(CONTRACT_ADDRESS,web3j,credentials,gasProvider);
     }
 
     public void createNewWallet(User user) {
@@ -68,8 +68,9 @@ public class BlockchainCommunication {
         return contract.distributeTokens(student, amount, testName, grade).send();
     }
 
-    public TransactionReceipt redeemTokens(BigInteger amount) throws Exception {
-        return contract.redeemTokens(amount).send();
+    public TransactionReceipt redeemTokens(BigInteger amount,String studentWallet) throws Exception {
+        System.out.println(contract.getContractAddress());
+        return contract.redeemTokens(studentWallet,amount).send();
     }
 
     public TransactionReceipt mintTokens(BigInteger amount) throws Exception {

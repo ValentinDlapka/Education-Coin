@@ -16,3 +16,19 @@ Content-Type: application/json
   "password": "passme",
   "isTeacher": false
 }
+###
+GET {{url}}/rewards
+Content-Type: application/json
+###
+POST {{url}}/rewards/id
+Content-Type: application/json
+###
+POST {{url}}/rewards/redeem/1
+Content-Type: application/json
+
+{
+"amount": 1000,
+"test":"Pose",
+"grade":"Sehr Gut"
+}
+

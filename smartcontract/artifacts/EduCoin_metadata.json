@@ -370,6 +370,11 @@
 			{
 				"inputs": [
 					{
+						"internalType": "address",
+						"name": "studentWallet",
+						"type": "address"
+					},
+					{
 						"internalType": "uint256",
 						"name": "wholeTokens",
 						"type": "uint256"
@@ -548,7 +553,7 @@
 				"owner()": {
 					"details": "Returns the address of the current owner."
 				},
-				"redeemTokens(uint256)": {
+				"redeemTokens(address,uint256)": {
 					"details": "Redeem tokens by transferring them back to the school wallet.",
 					"params": {
 						"wholeTokens": "The amount of tokens to redeem (in whole units)."
@@ -644,11 +649,11 @@
 			]
 		},
 		"smartcontract/educationCoin.sol": {
-			"keccak256": "0x49bd25aa2063317be412123d3c6b78fadbc45278d3d356b5a34d931e778df04a",
+			"keccak256": "0x456b19dbb8e7f04551f34fe7cbba81a2fffc16407cea90b6cf8d54f9372aae6c",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://6f72dfd4d8d9941cbfe74d658e32a70c1e2515f4f0bcc3708daa834958d54a0c",
-				"dweb:/ipfs/QmNfVZfwCqkNrHmJ5ERbYiYrDcczGNoBhWbmEfU8e6HV3S"
+				"bzz-raw://1235de9e581765e500edc357d8468e569ed742818efde5057c5eaec11b9e6b3a",
+				"dweb:/ipfs/QmdJ8E7VGRSqx8KUviyxpQjBqycGuNrdPHAywDujt29BNU"
 			]
 		}
 	},

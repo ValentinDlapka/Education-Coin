@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="logout()" class="logout-button">
+      <ion-icon name="log-out" slot="start"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Token Stand -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Your Balance</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <h2 class="token-balance">
+        {{ userTokens }}
+        <img src="assets/logo.png" alt="Token" class="token-image">
+      </h2>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Redeem Button -->
+  <ion-button expand="block" color="primary" (click)="openRewardModal()">
+    🎁  redeem Reward
+  </ion-button>
+
+  <!-- Transaktionshistorie -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Transaction history</ion-card-title>
+    </ion-card-header>
+
+    <ion-list *ngIf="transactionHistory.length > 0; else noTx">
+      <ion-item *ngFor="let tx of transactionHistory">
+        <ion-label>
+          <h3>
+            <ion-icon
+              [name]="tx.type === 'earn' ? 'arrow-up-circle' : 'arrow-down-circle'"
+              [color]="tx.type === 'earn' ? 'success' : 'danger'"
+              style="vertical-align: middle; margin-right: 6px;"
+            ></ion-icon>
+            {{ tx.rewardName }}
+          </h3>
+          <p>
+            <span
+              [style.color]="tx.type === 'earn' ? 'green' : 'red'"
+              style="font-weight: bold;"
+            >
+              {{ tx.type === 'earn' ? '+' : '-' }}{{ tx.price }} Tokens
+            </span>
+            &nbsp;• {{ tx.date }}
+          </p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ng-template #noTx>
+      <ion-item>
+        <ion-label>No Transactions</ion-label>
+      </ion-item>
+    </ng-template>
+  </ion-card>
+</ion-content>

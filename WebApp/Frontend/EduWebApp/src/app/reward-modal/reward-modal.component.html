@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Redeem Reward</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let reward of availableRewards">
+      <ion-label>
+        <h2>{{ reward.name }}</h2>
+        <p>Price: {{ reward.tokens }} Tokens</p>
+      </ion-label>
+      <ion-button fill="outline" slot="end" (click)="redeemReward(reward)">
+        Redeem
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
